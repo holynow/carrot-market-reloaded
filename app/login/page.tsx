@@ -2,21 +2,19 @@ import FromButton from "@/components/form-button";
 import FormInput from "@/components/form-input";
 import SocialLogin from "@/components/social-login";
 
-const CreateAccount = () => {
+const Login = () => {
+  const handleForm = async (formData: FormData) => {
+    "use server";
+    console.log(formData.get("email"), formData.get("password"));
+    console.log("i run server");
+  };
   return (
     <div className="flex flex-col gap-10 py-8 px-6">
       <div className="flex flex-col gap-2 *:font-medium">
         <h1 className="text-2xl">Hi!</h1>
-        <h2 className="text-xl">Fill in the form below to join!</h2>
+        <h2 className="text-xl">Log in with email and password.</h2>
       </div>
-      <form className="flex flex-col gap-3">
-        <FormInput
-          name="text"
-          type="text"
-          placeholder="Username"
-          required
-          errors={[]}
-        />
+      <form action={handleForm} className="flex flex-col gap-3">
         <FormInput
           name="email"
           type="email"
@@ -31,18 +29,12 @@ const CreateAccount = () => {
           required
           errors={[]}
         />
-        <FormInput
-          name="confirmPassword"
-          type="password"
-          placeholder="Confirm Password"
-          required
-          errors={[]}
-        />
-        <FromButton text="Create account" loading={false} />
+
+        <FromButton text="Login" loading={false} />
       </form>
       <SocialLogin />
     </div>
   );
 };
 
-export default CreateAccount;
+export default Login;

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 const Home = () => {
   return (
     <div className="flex flex-col items-center justify-between min-h-screen p-6">
@@ -20,6 +20,6 @@ const Home = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Home;
